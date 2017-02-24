@@ -1,3 +1,5 @@
 GameJamImpact/Temp/*
 GameJamImpact/Library/*
 GameJamImpact/Library/*/*
+**.mdb
+**.dll
