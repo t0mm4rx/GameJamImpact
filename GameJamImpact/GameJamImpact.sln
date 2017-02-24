@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameJamImpact.Plugins", "GameJamImpact.Plugins.csproj", "{102B2389-DB24-6795-E8CE-F6EB1818B9D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameJamImpact", "GameJamImpact.csproj", "{A7DDC105-077D-4240-7BB5-DFA2AB86A8D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameJamImpact.Editor.Plugins", "GameJamImpact.Editor.Plugins.csproj", "{03F48249-B208-9070-E25B-1129C431CA14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{102B2389-DB24-6795-E8CE-F6EB1818B9D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{102B2389-DB24-6795-E8CE-F6EB1818B9D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{102B2389-DB24-6795-E8CE-F6EB1818B9D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{102B2389-DB24-6795-E8CE-F6EB1818B9D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7DDC105-077D-4240-7BB5-DFA2AB86A8D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7DDC105-077D-4240-7BB5-DFA2AB86A8D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7DDC105-077D-4240-7BB5-DFA2AB86A8D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7DDC105-077D-4240-7BB5-DFA2AB86A8D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03F48249-B208-9070-E25B-1129C431CA14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03F48249-B208-9070-E25B-1129C431CA14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03F48249-B208-9070-E25B-1129C431CA14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03F48249-B208-9070-E25B-1129C431CA14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
