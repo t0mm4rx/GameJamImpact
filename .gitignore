@@ -1,2 +1,3 @@
 GameJamImpact/Temp/*
-GameJamImpact/Library/**
+GameJamImpact/Library/*
+GameJamImpact/Library/*/*
