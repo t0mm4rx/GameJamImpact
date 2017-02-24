@@ -1,5 +1,5 @@
 GameJamImpact/Temp/*
 GameJamImpact/Library/*
 GameJamImpact/Library/*/*
-**.mdb
-**.dll
+GameJamImpact/Library/ScriptAssemblies/Assembly-CSharp.dll
+GameJamImpact/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
