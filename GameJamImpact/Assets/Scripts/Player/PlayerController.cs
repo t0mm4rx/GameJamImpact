@@ -192,7 +192,9 @@ public class PlayerController : MonoBehaviour {
             if(backgroundTransform != null)
             {
                 backgroundTransform.position = backgroundTransform.position + (Vector3) vit * parallaxSpeed;
-                backgroundTransform.GetComponent<InfiniteScroll>().checkIfFarerThanFrontBackground(this.transform.position);
+                InfiniteScroll ins = backgroundTransform.GetComponent<InfiniteScroll>();
+                if(ins != null)
+                    ins.checkIfFarerThanFrontBackground(this.transform.position);
             }
         }
     }
