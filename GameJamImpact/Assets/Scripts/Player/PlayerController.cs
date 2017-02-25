@@ -104,6 +104,19 @@ public class PlayerController : MonoBehaviour {
     public float levelGauge = 0.0f;
     #endregion
 
+    #region money
+
+    [Header("Money")]
+
+    [SerializeField]
+    [Tooltip("Texte qui affichera la quantité d'argent.")]
+    private UnityEngine.UI.Text moneyDisplayer;
+
+    [Tooltip("Quantité d'argent actuelle.")]
+    public uint money = 0;
+
+    #endregion
+
     #region level interaction
     [Header("Level Interactions")]
 
@@ -176,6 +189,7 @@ public class PlayerController : MonoBehaviour {
         HandleJump();
         HandleWin();
 
+        moneyDisplayer.text = "Argent : " + money.ToString() + " $";
         gauge.value = levelGauge;
         currentSpeed = speed;
 	}
