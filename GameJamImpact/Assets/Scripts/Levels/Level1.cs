@@ -28,6 +28,10 @@ public class Level1 : MonoBehaviour {
     [Tooltip("Coordonnées du goal à atteindre.")]
     public Transform goal;
 
+    [SerializeField]
+    [Tooltip("Liste des sprites possibles pour les bébés.")]
+    private Sprite[] sprites;
+
     // Use this for initialization
     void Start () {
         Vector2 lastObstacle = firstObstaclePosition;
@@ -42,6 +46,15 @@ public class Level1 : MonoBehaviour {
     void GenerateObstacle(Vector2 newPosition)
     {
         obstacle.transform.position = newPosition;
+        int spriteIndex = Random.Range(0, sprites.Length);
+        obstacle.GetComponent<SpriteRenderer>().sprite = sprites[spriteIndex];
+        if(Random.Range(0,2) == 1)
+        {
+            Vector3 newScale = obstacle.transform.localScale;
+            newScale.Scale(new Vector3(-1, 1, 1));
+            obstacle.transform.localScale = newScale;
+        }
+
         Instantiate<GameObject>(obstacle, obstacles, true);
     }
 	
