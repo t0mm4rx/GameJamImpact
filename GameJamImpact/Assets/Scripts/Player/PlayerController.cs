@@ -74,6 +74,10 @@ public class PlayerController : MonoBehaviour {
     [Header("Jauges")]
 
     [SerializeField]
+    [Tooltip("Objet désignant la jauge dans l'interface.")]
+    private GaugeManager gauge;
+
+    [SerializeField]
     [Tooltip("Jauge du niveau")]
     [Range(0.0f, 1.0f)]
     public float levelGauge = 0.0f;
@@ -96,7 +100,6 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
         feets = this.GetComponentInChildren<CapsuleCollider2D>();
         sprite = this.GetComponentInChildren<SpriteRenderer>();
 	}
@@ -109,6 +112,7 @@ public class PlayerController : MonoBehaviour {
         HandleWalk();
         HandleJump();
 
+        gauge.value = levelGauge;
         currentSpeed = speed;
 	}
 
