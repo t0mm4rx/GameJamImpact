@@ -189,7 +189,8 @@ public class PlayerController : MonoBehaviour {
             Vector2 vit = (dir * currentSpeed * Time.deltaTime);
             transform.position = (Vector2) transform.position + vit;
 
-            backgroundTransform.position = (Vector2) backgroundTransform.position + vit * parallaxSpeed;
+            if(backgroundTransform != null)
+                backgroundTransform.position = (Vector2) backgroundTransform.position + vit * parallaxSpeed;
         }
     }
 
