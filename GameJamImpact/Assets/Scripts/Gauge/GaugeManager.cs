@@ -21,7 +21,6 @@ public class GaugeManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        RectTransform rt = this.GetComponent<RectTransform>();
         contenant.anchorMax = new Vector2(value, 1);
 	}
 }
