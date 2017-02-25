@@ -10,6 +10,7 @@ public class Level2 : MonoBehaviour, ILevelInteraction {
 	private bool isImmunity = false;
 	public GameObject prefab;
 	private Text actionText;
+	public bool isHardMode = false;
 
 	void Start () {
 		lastFire = Time.time;
@@ -24,6 +25,9 @@ public class Level2 : MonoBehaviour, ILevelInteraction {
 		if (isImmunity && Time.time - lastImmunity > immunityTime) {
 			isImmunity = false;
 			actionText.enabled = true;
+		}
+		if (isHardMode && Time.time - lastImmunity > 1.5f) {
+			actionText.color = Color.white;
 		}
 		if (Input.GetKeyDown ("a")) {
 			immunity();
@@ -43,10 +47,14 @@ public class Level2 : MonoBehaviour, ILevelInteraction {
 	}
 
 	public void immunity() {
-		if (!isImmunity) {
+		if (!isImmunity && !isHardMode) {
 			actionText.enabled = false;
 			lastImmunity = Time.time;
 			isImmunity = true;
+		}
+		if (isHardMode) {
+			actionText.color = Color.red;
+			lastImmunity = Time.time;
 		}
 	}
 
