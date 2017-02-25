@@ -1,19 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Level2 : MonoBehaviour {
 
-	public int fireRate = 2, immunityTime = 5;
+	public float fireRate = 2, immunityTime = 5;
 	private float lastFire = 0, lastImmunity = 0;
 	private bool isImmunity = false;
 	public GameObject prefab;
-	public GaugeManager teacherGauge;
+	private Text actionText;
 
 	void Start () {
 		lastFire = Time.time;
-		teacherGauge = GameObject.Find ("TeacherGauge").gameObject.GetComponent<GaugeManager> ();
-		teacherGauge.gameObject.SetActive (false);
+		actionText = GameObject.Find ("ActionText").gameObject.GetComponent<Text> ();
 	}
 
 	void FixedUpdate () {
@@ -23,10 +23,7 @@ public class Level2 : MonoBehaviour {
 		}
 		if (isImmunity && Time.time - lastImmunity > immunityTime) {
 			isImmunity = false;
-			teacherGauge.gameObject.SetActive (false);
-		}
-		if (isImmunity) {
-			teacherGauge.value = (Time.time - lastImmunity) / immunityTime;
+			actionText.enabled = true;
 		}
 		if (Input.GetKeyDown ("a")) {
 			immunity();
@@ -47,9 +44,10 @@ public class Level2 : MonoBehaviour {
 
 	public void immunity() {
 		if (!isImmunity) {
-			teacherGauge.gameObject.SetActive (true);
+			actionText.enabled = false;
 			lastImmunity = Time.time;
 			isImmunity = true;
 		}
 	}
+
 }
