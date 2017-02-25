@@ -44,8 +44,8 @@ public class Level2 : MonoBehaviour, ILevelInteraction {
 		} else {
 			go.GetComponent<GradeController> ().grade = Random.Range (0, 16);
 		}
-		int offsetY = Random.Range (0, -2);
-		float y = -2 + offsetY;
+		int offsetY = Random.Range (0, 2);
+		float y = -2 - offsetY * 0.8f;
 		go.transform.position = new Vector3 (transform.position.x + 8, y, 0);
 	}
 

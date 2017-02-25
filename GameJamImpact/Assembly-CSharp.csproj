@@ -48,11 +48,14 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\FinishListener.cs" />
      <Compile Include="Assets\Scripts\Gauge\GaugeManager.cs" />
+     <Compile Include="Assets\Scripts\Goal\ActionController.cs" />
      <Compile Include="Assets\Scripts\Goal\Goal.cs" />
      <Compile Include="Assets\Scripts\Goal\GoalEditor.cs" />
      <Compile Include="Assets\Scripts\GradeController.cs" />
-     <Compile Include="Assets\Scripts\Level2.cs" />
-     <Compile Include="Assets\Scripts\Level3.cs" />
+     <Compile Include="Assets\Scripts\Levels\Level1.cs" />
+     <Compile Include="Assets\Scripts\Levels\Level1Editor.cs" />
+     <Compile Include="Assets\Scripts\Levels\Level2.cs" />
+     <Compile Include="Assets\Scripts\Levels\Level3.cs" />
      <Compile Include="Assets\Scripts\Obstacles\Obstacle.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Util\BlinkingText.cs" />
