@@ -15,16 +15,19 @@ public class PlayerController : MonoBehaviour {
         RIGHT
     }
 
+    #region references
     // Collider vers les pieds du personnage
     private CapsuleCollider2D feets;
 
     // Sprite du personnage
     private SpriteRenderer sprite;
+    #endregion
 
+    #region movements
     [Header("Movements")]
 
     [Tooltip("Indique si le personnage doit courir.")]
-    public bool isWalking;
+    public bool enableWalking = true;
 
     [Tooltip("Sens de déplacement par défaut du personnage.")]
     public Direction moveDirection;
@@ -35,8 +38,13 @@ public class PlayerController : MonoBehaviour {
 
     // Vitesse actuelle du personnage.
     private float currentSpeed;
+    #endregion
 
+    #region jump
     [Header("Jump")]
+
+    [Tooltip("Indique si le personnage peut sauter.")]
+    public bool enableJumping = true;
 
     [SerializeField]
     [Tooltip("Layers correspondant au sol.")]
@@ -53,7 +61,9 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     [Tooltip("Force du saut du personnage.")]
     private float jumpPower;
+    #endregion
 
+    #region stun
     [Header("Stun")]
 
     [SerializeField]
@@ -69,7 +79,9 @@ public class PlayerController : MonoBehaviour {
 
     // Temps pendant lequel le personnage est stunned.
     private float stunTime = 0.0f;
+    #endregion
 
+    #region gauges
     [Header("Gauges")]
 
     [SerializeField]
@@ -80,7 +92,9 @@ public class PlayerController : MonoBehaviour {
     [Tooltip("Jauge du niveau")]
     [Range(0.0f, 1.0f)]
     public float levelGauge = 0.0f;
+    #endregion
 
+    #region level interaction
     [Header("Level Interactions")]
 
     [SerializeField]
@@ -90,6 +104,24 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     [Tooltip("Axe de l'appel de l'intéraction avec le niveau.")]
     private string levelInteractionAxis;
+    #endregion
+
+    #region win level 1
+    [Header("Win Level 1")]
+
+    [SerializeField]
+    [Tooltip("Indique si le personnage a gagné le niveau.")]
+    private bool hasWon;
+
+    [Tooltip("Transform du lit du personnage.")]
+    private Transform bed;
+
+    [Tooltip("Temps pour que le personnage aille sur le lit.")]
+    private float timeToTransform = 0.0f;
+
+    [Tooltip("Temps passé depuis la victoire.")]
+    private float timeSinceWin = 0.0f;
+    #endregion
 
     // Indique si le personnage est stunned
     public bool isStunned
@@ -118,7 +150,7 @@ public class PlayerController : MonoBehaviour {
     // Fonction gérant le déplacement du personnage
     void HandleWalk()
     {
-        if (isWalking)
+        if (enableWalking)
         {
             Vector2 dir = new Vector2(moveDirection == Direction.LEFT ? -1.0f : 1.0f, 0.0f);
             transform.position = (Vector2) transform.position + (dir * currentSpeed * Time.deltaTime);
@@ -128,7 +160,7 @@ public class PlayerController : MonoBehaviour {
     // Fonction gérant le saut du personnage
     void HandleJump()
     {
-        if (Input.GetAxis(jumpAxis) > 0 && feets.IsTouchingLayers(groundLayerMask))
+        if (enableJumping && Input.GetAxis(jumpAxis) > 0 && feets.IsTouchingLayers(groundLayerMask))
         {
             Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
             rb.velocity = new Vector2(0, jumpPower);
@@ -182,5 +214,16 @@ public class PlayerController : MonoBehaviour {
     public void IncreaseGauge(float g)
     {
         levelGauge += g;
+    }
+
+    /// <summary>
+    /// Fonction appelée lorsque le joueur finit le premier niveau
+    /// </summary>
+    public void WinFirstLevel()
+    {
+        enableWalking = false;
+        enableJumping = false;
+
+        hasWon = true;
     }
 }
