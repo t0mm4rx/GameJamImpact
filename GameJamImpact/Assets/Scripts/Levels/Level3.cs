@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class Level3 : MonoBehaviour {
 
-	// Use this for initialization
+	public float actionRate = 1;
+	private float lastTime;
+	public GameObject actionPrefab;
+
 	void Start () {
-		
+		lastTime = Time.time;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
+		if (Time.time - lastTime > actionRate) {
+			lastTime = Time.time;
+			spawnAction ();
+		}
+	}
 		
+	private void spawnAction() {
+		GameObject go = Instantiate (actionPrefab);
+		go.transform.position = new Vector3 (GameObject.Find("Player").transform.position.x + 16, -0.9f, 0);
 	}
 }
