@@ -113,8 +113,11 @@ public class PlayerController : MonoBehaviour {
     [Tooltip("Indique si le personnage a gagné le niveau.")]
     private bool hasWon;
 
+    [Tooltip("Coordonnées d'origine.")]
+    private Vector2 originTransform;
+
     [Tooltip("Transform du lit du personnage.")]
-    private Transform bed;
+    private Vector2 goalLevel1;
 
     [Tooltip("Temps pour que le personnage aille sur le lit.")]
     private float timeToTransform = 0.0f;
@@ -142,6 +145,7 @@ public class PlayerController : MonoBehaviour {
         HandleLevelInteraction();
         HandleWalk();
         HandleJump();
+        HandleWin();
 
         gauge.value = levelGauge;
         currentSpeed = speed;
@@ -194,6 +198,16 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    // Fonction gérant ce qui se passe lors de la victoire
+    void HandleWin()
+    {
+        if (hasWon)
+        {
+            this.transform.position = Vector2.Lerp(originTransform, goalLevel1, timeSinceWin / timeToTransform);
+            timeSinceWin += Time.deltaTime;
+        }
+    }
+
     /// <summary>
     /// Stun le player pendant un certain temps.
     /// </summary>
@@ -219,10 +233,13 @@ public class PlayerController : MonoBehaviour {
     /// <summary>
     /// Fonction appelée lorsque le joueur finit le premier niveau
     /// </summary>
-    public void WinFirstLevel()
+    public void WinFirstLevel(Vector2 positionToReach, float _timeToTransform = 3.0f)
     {
         enableWalking = false;
         enableJumping = false;
+        goalLevel1 = positionToReach;
+        originTransform = this.transform.position;
+        timeToTransform = _timeToTransform;
 
         hasWon = true;
     }

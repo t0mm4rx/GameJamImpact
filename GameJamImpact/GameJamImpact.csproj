@@ -83,6 +83,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Gauge\GaugeManager.cs" />
     <Compile Include="Assets\Scripts\Goal\Goal.cs" />
+    <Compile Include="Assets\Scripts\Goal\GoalEditor.cs" />
     <Compile Include="Assets\Scripts\GradeController.cs" />
     <Compile Include="Assets\Scripts\Level2.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Obstacle.cs" />
