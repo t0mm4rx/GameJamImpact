@@ -29,4 +29,8 @@ public class GradeController : MonoBehaviour {
 			return grade + "";
 		}
 	}
+
+	void OnCollisionEnter2D(Collision2D col) {
+		Destroy (gameObject);
+	}
 }

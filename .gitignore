@@ -33,3 +33,17 @@ sysinfo.txt
 ehthumbs.db
 [Tt]humbs.db
 [Dd]esktop.ini
+
+# =======================  #
+# Trucs qui bloc les pulls #
+# =======================  #
+GameJamImpact/Library/CurrentMaximizeLayout.dwlt
+GameJamImpact/Library/InspectorExpandedItems.asset
+GameJamImpact/Library/ScriptAssemblies/Assembly-CSharp.dll
+GameJamImpact/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+GameJamImpact/Library/assetDatabase3
+GameJamImpact/Library/metadata/00/00000000000000003000000000000000
+GameJamImpact/Library/metadata/05/05c5e41309ed9446787c87db44cdd5b7
+GameJamImpact/Library/metadata/fa/fad865b2ac1d343a9a28860597364469
+GameJamImpact/ProjectSettings/TagManager.asset
+
