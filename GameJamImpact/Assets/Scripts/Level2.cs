@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class Level2 : MonoBehaviour {
+public class Level2 : MonoBehaviour, ILevelInteraction {
 
 	public float fireRate = 2, immunityTime = 5;
 	private float lastFire = 0, lastImmunity = 0;
@@ -35,7 +35,7 @@ public class Level2 : MonoBehaviour {
 		if (isImmunity) {
 			go.GetComponent<GradeController> ().grade = Random.Range (14, 20);
 		} else {
-			go.GetComponent<GradeController> ().grade = Random.Range (0, 20);
+			go.GetComponent<GradeController> ().grade = Random.Range (0, 16);
 		}
 		int offsetY = Random.Range (0, -2);
 		float y = -2 + offsetY;
@@ -50,4 +50,7 @@ public class Level2 : MonoBehaviour {
 		}
 	}
 
+	public void CallLevelInteraction() {
+
+	}
 }
