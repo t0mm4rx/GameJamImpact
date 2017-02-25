@@ -7,10 +7,12 @@ public class GradeController : MonoBehaviour {
 	TextMesh textMesh;
 	public int grade = 0;
 	public float speed = 30;
+	private PlayerController playerController;
 
 	void Start () {
 		textMesh = gameObject.GetComponent<TextMesh>();
 		textMesh.text = gradeToString(grade) + "/20";
+		playerController = GameObject.Find ("Player").gameObject.GetComponent<PlayerController>();
 		if (grade > 10) {
 			textMesh.color = Color.green;
 		} else {
@@ -31,6 +33,13 @@ public class GradeController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {
+		if (textMesh.color == Color.red) {
+			playerController.levelGauge -= 0.1f;
+		} else {
+			if (playerController.levelGauge < 1) {
+				playerController.levelGauge += 0.1f;
+			}
+		}
 		Destroy (gameObject);
 	}
 }

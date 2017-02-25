@@ -46,8 +46,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Gauge\GaugeManager.cs" />
      <Compile Include="Assets\Scripts\GradeController.cs" />
      <Compile Include="Assets\Scripts\Level2.cs" />
+     <Compile Include="Assets\Scripts\Obstacles\Obstacle.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
