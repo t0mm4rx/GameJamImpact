@@ -6,7 +6,7 @@ public class GradeController : MonoBehaviour {
 
 	TextMesh textMesh;
 	public int grade = 0;
-	public float speed = 30;
+	public float speed = 0.015f;
 	private PlayerController playerController;
 
 	void Start () {
@@ -21,7 +21,9 @@ public class GradeController : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		transform.Translate (Vector3.left * speed * 0.001f);
+		Vector3 pos = transform.position;
+		pos.x -= speed;
+		transform.position = pos;
 	}
 
 	private string gradeToString(int grade) {
