@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Level3.cs" />
      <Compile Include="Assets\Scripts\Gauge\GaugeManager.cs" />
      <Compile Include="Assets\Scripts\GradeController.cs" />
      <Compile Include="Assets\Scripts\Level2.cs" />

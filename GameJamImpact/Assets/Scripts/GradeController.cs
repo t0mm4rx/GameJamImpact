@@ -36,7 +36,9 @@ public class GradeController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col) {
 		if (textMesh.color == Color.red) {
-			playerController.levelGauge -= 0.1f;
+			if (playerController.levelGauge > 0) {
+				playerController.levelGauge -= 0.1f;
+			}
 		} else {
 			if (playerController.levelGauge < 1) {
 				playerController.levelGauge += 0.1f;
