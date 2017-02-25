@@ -33,8 +33,7 @@ public class PlayerController : MonoBehaviour {
     [Tooltip("Vitesse du personnage.")]
     private float speed;
 
-    [SerializeField]
-    [Tooltip("Vitesse actuelle du personnage.")]
+    // Vitesse actuelle du personnage.
     private float currentSpeed;
 
     [Header("Jump")]
@@ -56,12 +55,6 @@ public class PlayerController : MonoBehaviour {
     private float jumpPower;
 
     [Header("Stun")]
-    
-    [Tooltip("Temps passé depuis le dernier stun.")]
-    private float timeSinceLastStun = 0.0f;
-
-    [Tooltip("Temps pendant lequel le personnage est stunned.")]
-    private float stunTime = 0.0f;
 
     [SerializeField]
     [Tooltip("Fréquence de clignotements du personnage lors du stun.")]
@@ -71,7 +64,13 @@ public class PlayerController : MonoBehaviour {
     [Tooltip("Taux de ralentissement du personnage lors du stun.")]
     private float slowdownOnStun = 2.0f;
 
-    [Header("Jauges")]
+    // Temps passé depuis le dernier stun.
+    private float timeSinceLastStun = 0.0f;
+
+    // Temps pendant lequel le personnage est stunned.
+    private float stunTime = 0.0f;
+
+    [Header("Gauges")]
 
     [SerializeField]
     [Tooltip("Objet désignant la jauge dans l'interface.")]
@@ -82,7 +81,7 @@ public class PlayerController : MonoBehaviour {
     [Range(0.0f, 1.0f)]
     public float levelGauge = 0.0f;
 
-    [Header("Intéraction avec le niveau")]
+    [Header("Level Interactions")]
 
     [SerializeField]
     [Tooltip("Interaction avec le niveau.")]
