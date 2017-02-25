@@ -39,6 +39,15 @@ public class PlayerController : MonoBehaviour {
 
     // Vitesse actuelle du personnage.
     private float currentSpeed;
+
+    [SerializeField]
+    [Tooltip("Transform du background du niveau")]
+    private Transform backgroundTransform;
+
+    [SerializeField]
+    [Tooltip("Vitesse du parallax.")]
+    [Range(0.0f,1.0f)]
+    private float parallaxSpeed;
     #endregion
 
     #region jump
@@ -130,6 +139,20 @@ public class PlayerController : MonoBehaviour {
     private string nextScene;
     #endregion
 
+    #region camera
+
+    [SerializeField]
+    [Tooltip("Position locale de la caméra une fois arrivée au goal.")]
+    private Vector3 cameraFinalLocalPosition;
+
+    [Tooltip("Pointeur vers la caméra")]
+    private Transform cameraTransform;
+
+    [Tooltip("Position locale de la caméra")]
+    private Vector3 cameraLocalPosition;
+    
+    #endregion
+
     // Indique si le personnage est stunned
     public bool isStunned
     {
@@ -140,6 +163,8 @@ public class PlayerController : MonoBehaviour {
     void Start () {
         feets = this.GetComponentInChildren<CapsuleCollider2D>();
         sprite = this.GetComponentInChildren<SpriteRenderer>();
+        cameraTransform = this.transform.FindChild("Main Camera").transform;
+        cameraLocalPosition = cameraTransform.localPosition;
 	}
 	
 	// Update is called once per frame
@@ -161,7 +186,10 @@ public class PlayerController : MonoBehaviour {
         if (enableWalking)
         {
             Vector2 dir = new Vector2(moveDirection == Direction.LEFT ? -1.0f : 1.0f, 0.0f);
-            transform.position = (Vector2) transform.position + (dir * currentSpeed * Time.deltaTime);
+            Vector2 vit = (dir * currentSpeed * Time.deltaTime);
+            transform.position = (Vector2) transform.position + vit;
+
+            backgroundTransform.position = (Vector2) backgroundTransform.position + vit * parallaxSpeed;
         }
     }
 
@@ -208,6 +236,7 @@ public class PlayerController : MonoBehaviour {
         if (hasWon)
         {
             this.transform.position = Vector2.Lerp(originTransform, goalLevel1, timeSinceWin / timeToTransform);
+            cameraTransform.localPosition = Vector3.Lerp(cameraLocalPosition, cameraFinalLocalPosition, timeSinceWin / timeToTransform);
             timeSinceWin += Time.deltaTime;
 
             // Gestion de la transition entre les scènes
