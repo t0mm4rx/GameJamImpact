@@ -8,9 +8,12 @@ public class Level2 : MonoBehaviour {
 	private float lastFire = 0, lastImmunity = 0;
 	private bool isImmunity = false;
 	public GameObject prefab;
+	public GaugeManager teacherGauge;
 
 	void Start () {
 		lastFire = Time.time;
+		teacherGauge = GameObject.Find ("TeacherGauge").gameObject.GetComponent<GaugeManager> ();
+		teacherGauge.gameObject.SetActive (false);
 	}
 
 	void FixedUpdate () {
@@ -20,10 +23,14 @@ public class Level2 : MonoBehaviour {
 		}
 		if (isImmunity && Time.time - lastImmunity > immunityTime) {
 			isImmunity = false;
+			teacherGauge.gameObject.SetActive (false);
 		}
-		/*if (Input.GetKeyDown ("space")) {
+		if (isImmunity) {
+			teacherGauge.value = (Time.time - lastImmunity) / immunityTime;
+		}
+		if (Input.GetKeyDown ("a")) {
 			immunity();
-		}*/
+		}
 	}
 
 	void spawnGrade() {
@@ -39,7 +46,10 @@ public class Level2 : MonoBehaviour {
 	}
 
 	public void immunity() {
-		lastImmunity = Time.time;
-		isImmunity = true;
+		if (!isImmunity) {
+			teacherGauge.gameObject.SetActive (true);
+			lastImmunity = Time.time;
+			isImmunity = true;
+		}
 	}
 }
