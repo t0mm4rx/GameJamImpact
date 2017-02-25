@@ -106,14 +106,8 @@ public class PlayerController : MonoBehaviour {
 
     #region money
 
-    [Header("Money")]
-
     [SerializeField]
-    [Tooltip("Texte qui affichera la quantité d'argent.")]
-    private UnityEngine.UI.Text moneyDisplayer;
-
-    [Tooltip("Quantité d'argent actuelle.")]
-    public uint money = 0;
+    private MoneyGauge moneyGauge;
 
     #endregion
 
@@ -172,6 +166,12 @@ public class PlayerController : MonoBehaviour {
         get { return timeSinceLastStun < stunTime; }
     }
 
+    private void Awake()
+    {
+        moneyGauge = FindObjectOfType<MoneyGauge>();
+        DontDestroyOnLoad(moneyGauge);
+    }
+
     // Use this for initialization
     void Start () {
         feets = this.GetComponentInChildren<CapsuleCollider2D>();
@@ -188,8 +188,9 @@ public class PlayerController : MonoBehaviour {
         HandleWalk();
         HandleJump();
         HandleWin();
-
-        moneyDisplayer.text = "Argent : " + money.ToString() + " $";
+        
+        moneyGauge.Display();
+        
         gauge.value = levelGauge;
         currentSpeed = speed;
 	}
@@ -286,7 +287,7 @@ public class PlayerController : MonoBehaviour {
     /// <param name="g">Quantité à augmenter de la jauge.</param>
     public void IncreaseGauge(float g)
     {
-        levelGauge += g;
+        levelGauge = Mathf.Clamp(levelGauge + g, 0.0f, 1.0f);
     }
 
     /// <summary>
