@@ -21,9 +21,9 @@ public class GradeController : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		Vector3 pos = transform.position;
+		/*Vector3 pos = transform.position;
 		pos.x -= speed;
-		transform.position = pos;
+		transform.position = pos;*/
 	}
 
 	private string gradeToString(int grade) {
@@ -35,15 +35,17 @@ public class GradeController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		if (textMesh.color == Color.red) {
-			if (playerController.levelGauge > 0) {
-				playerController.levelGauge -= 0.1f;
+		if (col.name == "Player") {
+			if (textMesh.color == Color.red) {
+				if (playerController.levelGauge > 0) {
+					playerController.levelGauge -= 0.1f;
+				}
+			} else {
+				if (playerController.levelGauge < 1) {
+					playerController.levelGauge += 0.1f;
+				}
 			}
-		} else {
-			if (playerController.levelGauge < 1) {
-				playerController.levelGauge += 0.1f;
-			}
+			Destroy (gameObject);
 		}
-		Destroy (gameObject);
 	}
 }

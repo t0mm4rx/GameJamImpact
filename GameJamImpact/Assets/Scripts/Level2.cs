@@ -10,17 +10,20 @@ public class Level2 : MonoBehaviour, ILevelInteraction {
 	private bool isImmunity = false;
 	public GameObject prefab;
 	private Text actionText;
-	public bool isHardMode = false;
+	public bool isHardMode = false, doesSpawnGrades = true;
 
 	void Start () {
 		lastFire = Time.time;
+		doesSpawnGrades = true;
 		actionText = GameObject.Find ("ActionText").gameObject.GetComponent<Text> ();
 	}
 
 	void FixedUpdate () {
 		if (Time.time - lastFire > fireRate) {
 			lastFire = Time.time;
-			spawnGrade ();
+			if (doesSpawnGrades) {
+				spawnGrade ();
+			}
 		}
 		if (isImmunity && Time.time - lastImmunity > immunityTime) {
 			isImmunity = false;
