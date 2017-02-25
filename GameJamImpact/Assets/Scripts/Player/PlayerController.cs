@@ -190,7 +190,10 @@ public class PlayerController : MonoBehaviour {
             transform.position = (Vector2) transform.position + vit;
 
             if(backgroundTransform != null)
-                backgroundTransform.position = (Vector2) backgroundTransform.position + vit * parallaxSpeed;
+            {
+                backgroundTransform.position = backgroundTransform.position + (Vector3) vit * parallaxSpeed;
+                backgroundTransform.GetComponent<InfiniteScroll>().checkIfFarerThanFrontBackground(this.transform.position);
+            }
         }
     }
 

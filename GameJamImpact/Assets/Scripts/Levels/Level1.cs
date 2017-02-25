@@ -5,6 +5,10 @@ using UnityEngine;
 public class Level1 : MonoBehaviour {
 
     [SerializeField]
+    [Tooltip("Conteneur des obstacles.")]
+    private Transform obstacles;
+
+    [SerializeField]
     [Tooltip("Modèle d'un obstacle.")]
     public GameObject obstacle;
 
@@ -18,15 +22,27 @@ public class Level1 : MonoBehaviour {
 
     [SerializeField]
     [Tooltip("Borne maximale de l'écart de pop des obstacles.")]
-    public float maxXObstacleRepop;
+    public float rangeXObstacleRepop;
+
+    [SerializeField]
+    [Tooltip("Coordonnées du goal à atteindre.")]
+    public Transform goal;
 
     // Use this for initialization
     void Start () {
-		
+        Vector2 lastObstacle = firstObstaclePosition;
+        while(lastObstacle.x < goal.transform.position.x - minXObstacleRepop)
+        {
+            GenerateObstacle(lastObstacle);
+            lastObstacle = lastObstacle + new Vector2(minXObstacleRepop + Random.Range(0.0f, rangeXObstacleRepop), 0.0f);
+        }
 	}
+
+    // Génère un obstacle à la position newPosition
+    void GenerateObstacle(Vector2 newPosition)
+    {
+        obstacle.transform.position = newPosition;
+        Instantiate<GameObject>(obstacle, obstacles, true);
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

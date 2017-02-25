@@ -11,9 +11,16 @@ public class Level1Editor : Editor {
         Level1 level = (Level1) target;
         Bounds bounds = level.obstacle.GetComponent<SpriteRenderer>().sprite.bounds;
         Vector2 obstacleSize = bounds.size;
-        Debug.Log(obstacleSize);
 
         Handles.DrawSolidRectangleWithOutline(new Rect(level.firstObstaclePosition, obstacleSize), Color.green, Color.black);
-        // Handles.DrawArrow(0, )
+
+        Handles.color = Color.white;
+        Vector3 arrowOrigin = (Vector3) level.firstObstaclePosition + new Vector3(bounds.max.x, bounds.center.y, level.obstacle.transform.position.z);
+        Vector3 arrowMiddle = arrowOrigin + new Vector3(level.minXObstacleRepop, 0.0f, 0.0f);
+        Handles.DrawLine(arrowOrigin, arrowMiddle);
+
+        Handles.color = Color.green;
+        Vector3 arrowEnd = arrowMiddle + new Vector3(level.rangeXObstacleRepop, 0.0f, 0.0f);
+        Handles.DrawLine(arrowMiddle, arrowEnd);
     }
 }
