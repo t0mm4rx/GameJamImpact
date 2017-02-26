@@ -32,6 +32,8 @@ public class Level1 : MonoBehaviour {
     [Tooltip("Liste des sprites possibles pour les bébés.")]
     private Sprite[] sprites;
 
+    [SerializeField]
+    [Tooltip("Indique si on est en mode hard.")]
 	public bool isHardMode = false;
 
     // Use this for initialization

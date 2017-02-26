@@ -144,6 +144,10 @@ public class PlayerController : MonoBehaviour {
 
     [Tooltip("Prochaine scène à atteindre.")]
     private string nextScene;
+
+    [SerializeField]
+    [Tooltip("Pointeur vers le gestionnaire du premier niveau.")]
+    private Level1 level1;
     #endregion
 
     #region camera
@@ -170,6 +174,10 @@ public class PlayerController : MonoBehaviour {
     {
         moneyGauge = FindObjectOfType<MoneyGauge>();
         DontDestroyOnLoad(moneyGauge);
+
+        level1 = FindObjectOfType<Level1>();
+        if (level1 != null)
+            DontDestroyOnLoad(level1);
     }
 
     // Use this for initialization
@@ -263,7 +271,15 @@ public class PlayerController : MonoBehaviour {
             // Gestion de la transition entre les scènes
             if (timeSinceWin > timeToTransform && Input.GetAxis(jumpAxis) > 0)
             {
-                SceneManager.LoadScene(nextScene);
+                if(level1 != null && level1.isHardMode)
+                {
+                    level1.isHardMode = false;
+                    DontDestroyOnLoad(level1);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                } else {
+                    Destroy(level1);
+                    SceneManager.LoadScene(nextScene);
+                }
             }
         }
     }
