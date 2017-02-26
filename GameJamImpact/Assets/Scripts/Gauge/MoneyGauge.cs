@@ -44,10 +44,13 @@ public class MoneyGauge : MonoBehaviour {
 
     public void OnLevelLoaded(Scene scene, LoadSceneMode mode)
     {
-        GameObject coinMeter = GameObject.FindGameObjectWithTag(coinMeterTag);
-        if (coinMeter != null)
+        if(coinMeterTag != null)
         {
-            moneyDisplayer = coinMeter.GetComponent<Text>();
+            GameObject coinMeter = GameObject.FindGameObjectWithTag(coinMeterTag);
+            if (coinMeter != null)
+            {
+                moneyDisplayer = coinMeter.GetComponent<Text>();
+            }
         }
     }
 

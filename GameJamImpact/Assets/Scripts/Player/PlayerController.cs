@@ -253,7 +253,7 @@ public class PlayerController : MonoBehaviour {
     // Fonction gérant l'appel de l'intéraction avec le niveau
     void HandleLevelInteraction()
     {
-        if (!level1.isHardMode && Input.GetAxis(levelInteractionAxis) > 0 && levelInteraction != null)
+        if (level1 != null && !level1.isHardMode && Input.GetAxis(levelInteractionAxis) > 0 && levelInteraction != null)
         {
             foreach(ILevelInteraction ile in levelInteraction.GetComponents<ILevelInteraction>())
                 ile.CallLevelInteraction();
