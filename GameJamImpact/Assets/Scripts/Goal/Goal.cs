@@ -39,6 +39,7 @@ public class Goal : MonoBehaviour {
             PlayerController pc = go.GetComponent<PlayerController>();
             if (pc != null)
             {
+				PlayerPrefs.SetFloat ("education", FindObjectOfType<GaugeManager>().value);
                 pc.WinFirstLevel(transform.TransformPoint(victoryLocalPosition), nextScene, timeToGoToVictory);
             }
         }

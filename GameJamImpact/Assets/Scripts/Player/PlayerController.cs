@@ -178,7 +178,7 @@ public class PlayerController : MonoBehaviour {
         level1 = FindObjectOfType<Level1>();
         if (level1 != null)
         {
-            DontDestroyOnLoad(level1);
+            //DontDestroyOnLoad(level1);
             levelInteraction = level1.gameObject;
         }
             
@@ -276,14 +276,8 @@ public class PlayerController : MonoBehaviour {
             // Gestion de la transition entre les scènes
             if (timeSinceWin > timeToTransform && Input.GetAxis(jumpAxis) > 0)
             {
-                if(level1 != null && level1.isHardMode)
-                {
-                    level1.isHardMode = false;
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                } else {
-                    Destroy(level1);
-                    SceneManager.LoadScene(nextScene);
-                }
+				PlayerPrefs.SetFloat ("education", FindObjectOfType<GaugeManager>().value);
+            	SceneManager.LoadScene("Transition 1-2");
             }
         }
     }

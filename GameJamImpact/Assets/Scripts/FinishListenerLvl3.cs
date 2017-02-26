@@ -14,13 +14,8 @@ public class FinishListenerLvl3 : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		if (PlayerPrefs.GetInt ("isHardMode") == 0) {
-			PlayerPrefs.SetInt ("isHardMode", 1);
-			SceneManager.LoadScene ("Transition 2-3");
-		} else {
-			PlayerPrefs.SetInt ("isHardMode", 0);
-			SceneManager.LoadScene ("Conclusion");
-		}
+		PlayerPrefs.SetFloat ("integration", FindObjectOfType<GaugeManager>().value);
+		SceneManager.LoadScene ("Conclusion");
 	}
 
 }

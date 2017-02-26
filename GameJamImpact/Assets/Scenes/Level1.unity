@@ -629,6 +629,10 @@ Prefab:
       propertyPath: nextScene
       value: Transition 1-2
       objectReference: {fileID: 0}
+    - target: {fileID: 1085111530419956, guid: 61cab3ee8a9f38c48a02f2beabd502fa, type: 2}
+      propertyPath: m_TagString
+      value: Goal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61cab3ee8a9f38c48a02f2beabd502fa, type: 2}
   m_IsPrefabParent: 0

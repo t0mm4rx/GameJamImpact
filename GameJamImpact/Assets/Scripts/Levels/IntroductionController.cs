@@ -6,7 +6,11 @@ using UnityEngine.SceneManagement;
 public class IntroductionController : MonoBehaviour {
 
 	void Start () {
-		PlayerPrefs.SetInt ("isHardMode", 0);
+		PlayerPrefs.SetFloat ("education", 0);
+		PlayerPrefs.SetFloat ("culture", 0);
+		PlayerPrefs.SetFloat ("integration", 0);
+		PlayerPrefs.SetInt ("isHardMode", 1);
+		PlayerPrefs.SetInt ("money", 2500);
 	}
 
 	void Update () {

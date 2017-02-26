@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\Goal\Goal.cs" />
      <Compile Include="Assets\Scripts\Goal\GoalEditor.cs" />
      <Compile Include="Assets\Scripts\GradeController.cs" />
+     <Compile Include="Assets\Scripts\Levels\ConclusionController.cs" />
      <Compile Include="Assets\Scripts\Levels\EnterToNextScreen.cs" />
      <Compile Include="Assets\Scripts\Levels\IntroductionController.cs" />
      <Compile Include="Assets\Scripts\Levels\Level1.cs" />

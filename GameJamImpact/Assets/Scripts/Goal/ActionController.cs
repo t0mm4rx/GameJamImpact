@@ -12,7 +12,7 @@ public class ActionController : MonoBehaviour {
 	private string name;
 	public AnimationClip animaton2;
 	private SoundManager soundManager;
-	public bool isHardMode = false;
+	public bool isHardMode = PlayerPrefs.GetInt("isHardMode") == 1;
 
 	public static string[] keys = {
 		"up",
@@ -28,6 +28,12 @@ public class ActionController : MonoBehaviour {
 		animator.SetInteger ("type", type);
 		isPlayerOnIt = false;
 		validated = false;
+		Debug.Log (PlayerPrefs.GetInt("isHardMode"));
+		if (PlayerPrefs.GetInt("isHardMode") == 1) {
+			Debug.Log ("Disabled");
+			spriteRenderer.enabled = false;
+			animator.enabled = false;
+		}
 	}
 
 	void Update () {

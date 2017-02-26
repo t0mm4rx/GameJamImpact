@@ -286,6 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScreen: Level3
+  setEasyMode: 0
 --- !u!1 &1112032987
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +516,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Un ami vous invite au th\xE9atre, c'est la premi\xE8re fois que vous assistez
-    \xE0 une repr\xE9sentation...\n\nControles :\nUP = applaudir\nDOWN = rire "
+    \xE0 une repr\xE9sentation...\n\nControles :\nDOWN = applaudir\nUP = rire "
 --- !u!222 &2064580684
 CanvasRenderer:
   m_ObjectHideFlags: 0

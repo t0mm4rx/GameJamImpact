@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class EnterToNextScreen : MonoBehaviour {
 
 	public string nextScreen;
+	public bool setEasyMode = false;
 
 	void Start () {
 		
@@ -13,6 +14,9 @@ public class EnterToNextScreen : MonoBehaviour {
 
 	void Update () {
 		if (Input.GetKeyDown("return") || Input.GetKeyDown("space")) {
+			if (setEasyMode) {
+				PlayerPrefs.SetInt ("isHardMode", 0);
+			}
 			SceneManager.LoadScene (nextScreen);
 		}
 	}

@@ -10,10 +10,11 @@ public class Level2 : MonoBehaviour {
 	private bool isImmunity = false;
 	public GameObject prefab;
 	private Text actionText;
-	public bool isHardMode = true, doesSpawnGrades = true;
+	public bool isHardMode = PlayerPrefs.GetInt("isHardMode") == 1, doesSpawnGrades = true;
 	public Sprite backgroundHard;
 
 	void Start () {
+		Debug.Log (PlayerPrefs.GetInt("school"));
 		lastFire = Time.time;
 		doesSpawnGrades = true;
 		actionText = GameObject.Find ("ActionText").gameObject.GetComponent<Text> ();
@@ -21,7 +22,7 @@ public class Level2 : MonoBehaviour {
 			isHardMode = true;
 		}
 
-		if (isHardMode) {
+		if (PlayerPrefs.GetInt("school") == 1) {
 			Debug.Log ("Hard");
 			GameObject.Find ("bg_2 Front").gameObject.GetComponent<SpriteRenderer> ().sprite = backgroundHard;
 			GameObject.Find ("bg_2 Behind").gameObject.GetComponent<SpriteRenderer> ().sprite = backgroundHard;

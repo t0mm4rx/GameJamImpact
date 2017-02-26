@@ -22,7 +22,7 @@ public class Level1 : MonoBehaviour, ILevelInteraction {
     [SerializeField]
     [Tooltip("Borne minimale de l'écart de pop des obstacles.")]
     public float minXObstacleRepop;
-
+		
     [SerializeField]
     [Tooltip("Borne maximale de l'écart de pop des obstacles.")]
     public float rangeXObstacleRepop;
@@ -45,9 +45,7 @@ public class Level1 : MonoBehaviour, ILevelInteraction {
     // Use this for initialization
     void Start () {
         Vector2 lastObstacle = firstObstaclePosition;
-		if (PlayerPrefs.GetInt("isHardMode") == 1) {
-			isHardMode = true;
-		}
+		isHardMode = PlayerPrefs.GetInt ("isHardMode") == 1;
         while(lastObstacle.x < goal.transform.position.x - minXObstacleRepop)
         {
             GenerateObstacle(lastObstacle);

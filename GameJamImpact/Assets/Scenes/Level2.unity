@@ -225,7 +225,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1ea65672ceba2b245b889c01a3473604, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 036181590cb2f4d0991257e7f08d136f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d180f716ad66ec4f9db390ffdbe1c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyDisplayer: {fileID: 0}
+  coinMeterTag: 
   money: 0
 --- !u!1 &934676318
 GameObject:
@@ -381,7 +381,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1ea65672ceba2b245b889c01a3473604, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 036181590cb2f4d0991257e7f08d136f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -745,6 +745,12 @@ Prefab:
       propertyPath: moneyGauge
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114781950019203394, guid: b47b6fa8194f52a4e91c80b74c7f6fb1,
+        type: 2}
+      propertyPath: backgroundHard
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ea65672ceba2b245b889c01a3473604,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 114531454418447798, guid: b47b6fa8194f52a4e91c80b74c7f6fb1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b47b6fa8194f52a4e91c80b74c7f6fb1, type: 2}
