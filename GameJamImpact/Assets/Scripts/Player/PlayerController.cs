@@ -274,7 +274,6 @@ public class PlayerController : MonoBehaviour {
                 if(level1 != null && level1.isHardMode)
                 {
                     level1.isHardMode = false;
-                    DontDestroyOnLoad(level1);
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 } else {
                     Destroy(level1);
