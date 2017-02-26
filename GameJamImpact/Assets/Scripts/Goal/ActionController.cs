@@ -35,6 +35,7 @@ public class ActionController : MonoBehaviour {
 			validated = true;
 			if (GameObject.Find ("Player").gameObject.GetComponent<PlayerController> ().levelGauge > 0) {
 				GameObject.Find ("Player").gameObject.GetComponent<PlayerController> ().levelGauge -= 0.05f;
+				soundManager.playOue();
 			}
 
 		}
@@ -42,10 +43,12 @@ public class ActionController : MonoBehaviour {
 			validated = true;
 			GameObject.Find ("Player").gameObject.GetComponent<SoundManager> ().playSound (10);
 			GameObject.Find ("Player").gameObject.GetComponent<PlayerController> ().levelGauge += 0.2f;
+			soundManager.playBoo ();
 		}
 		if (transform.position.x < GameObject.Find("Player").transform.position.x - 4) {
 			if (!validated && GameObject.Find ("Player").gameObject.GetComponent<PlayerController> ().levelGauge < 1) {
 				GameObject.Find ("Player").gameObject.GetComponent<PlayerController> ().levelGauge += 0.2f;
+				soundManager.playBoo ();
 			}
 			Destroy (gameObject);
 		}
@@ -54,8 +57,9 @@ public class ActionController : MonoBehaviour {
 			GameObject.Find ("Player").gameObject.GetComponent<PlayerController> ().levelGauge = 1;
 		}
 
-		if (isPlayerOnIt && Input.anyKeyDown && Input.GetKeyUp(key.ToLower())) {
+		if (isPlayerOnIt && Input.anyKeyDown && !Input.GetKeyDown(key.ToLower())) {
 			GameObject.Find ("Player").gameObject.GetComponent<PlayerController> ().levelGauge += 0.2f;
+			soundManager.playBoo ();
 		}
 
 		if (PlayerPrefs.GetInt("isHardMode") == 1 && spriteRenderer.enabled == true) {

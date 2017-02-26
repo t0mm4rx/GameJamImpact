@@ -14,7 +14,6 @@ public class FinishListenerLvl3 : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		Debug.Log ("Finish event !");
 		if (PlayerPrefs.GetInt ("isHardMode") == 0) {
 			PlayerPrefs.SetInt ("isHardMode", 1);
 			SceneManager.LoadScene ("Transition 2-3");

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour {
 
 	AudioSource audioSource;
-	public AudioClip laughing, apploases, buzzer;
+	public AudioClip laughing, apploases, boo, oue;
 
 	void Start () {
 		audioSource = gameObject.GetComponent<AudioSource> ();
@@ -23,17 +23,16 @@ public class SoundManager : MonoBehaviour {
 			break;
 		case 1:
 			audioSource.PlayOneShot (apploases, 0.1f);
-		break;
-		case 2:
-			//audioSource.PlayOneShot (apploases, 0.1f);
-			break;
-		case 3:
-			//audioSource.PlayOneShot (apploases, 0.1f);
-			break;
-		case 10:
-			audioSource.PlayOneShot (buzzer, 0.1f);
 			break;
 		}
+	}
+
+	public void playBoo() {
+		audioSource.PlayOneShot (boo, 0.1f);
+	}
+
+	public void playOue() {
+		audioSource.PlayOneShot (laughing, 0.1f);
 	}
 
 	public void stop() {
