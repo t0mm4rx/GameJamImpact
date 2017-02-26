@@ -20,6 +20,6 @@ public class FinishListener : MonoBehaviour {
 
 	IEnumerator End() {
 		yield return new WaitForSeconds(3);
-		SceneManager.LoadScene("Scenes/Level3");
+		SceneManager.LoadScene("Scenes/Transition 2-3");
 	}
 }
