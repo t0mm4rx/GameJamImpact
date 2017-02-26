@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class IntroductionController : MonoBehaviour {
+public class EnterToNextScreen : MonoBehaviour {
+
+	public string nextScreen;
 
 	void Start () {
-		PlayerPrefs.SetInt ("isHardMode", 0);
+		
 	}
 
 	void Update () {
 		if (Input.GetKeyDown("return") || Input.GetKeyDown("space")) {
-			SceneManager.LoadScene ("Transition 0-1");
+			SceneManager.LoadScene (nextScreen);
 		}
 	}
 }
