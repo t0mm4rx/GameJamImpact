@@ -7,12 +7,12 @@ public class Level3 : MonoBehaviour {
 	public float actionRate = 1;
 	private float lastTime;
 	public GameObject actionPrefab;
-	public bool isHardMode = true;
+	public bool isHardMode = false;
 
 	void Start () {
 		lastTime = Time.time;
-		if (isHardMode) {
-			actionRate *= 4;
+		if (PlayerPrefs.GetInt("isHardMode") == 1) {
+			isHardMode = true;
 		}
 	}
 
@@ -25,6 +25,7 @@ public class Level3 : MonoBehaviour {
 		
 	private void spawnAction() {
 		GameObject go = Instantiate (actionPrefab);
-		go.transform.position = new Vector3 (GameObject.Find("Player").transform.position.x + 16, -0.9f, 0);
+		go.transform.position = new Vector3 (GameObject.Find("Player").transform.position.x + 16, -3f, 0);
+		go.gameObject.GetComponent<ActionController> ().isHardMode = isHardMode;
 	}
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FinishListener : MonoBehaviour {
+public class FinishListenerLvl2 : MonoBehaviour {
 	void Start () {
 		
 	}
@@ -20,6 +20,13 @@ public class FinishListener : MonoBehaviour {
 
 	IEnumerator End() {
 		yield return new WaitForSeconds(3);
-		SceneManager.LoadScene("Scenes/Level3");
+		if (PlayerPrefs.GetInt ("isHardMode") == 1) {
+			PlayerPrefs.SetInt ("isHardMode", 0);
+			SceneManager.LoadScene ("Scenes/Transition 2-3");
+		} else {
+			PlayerPrefs.SetInt ("isHardMode", 1);
+			SceneManager.LoadScene ("Scenes/Transition 1-2");
+		}
+
 	}
 }
