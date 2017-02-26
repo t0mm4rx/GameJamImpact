@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FinishListener : MonoBehaviour {
+public class FinishListenerLvl2 : MonoBehaviour {
 	void Start () {
 		
 	}
