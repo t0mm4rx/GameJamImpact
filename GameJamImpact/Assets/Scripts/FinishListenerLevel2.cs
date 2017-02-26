@@ -20,6 +20,13 @@ public class FinishListener : MonoBehaviour {
 
 	IEnumerator End() {
 		yield return new WaitForSeconds(3);
-		SceneManager.LoadScene("Scenes/Transition 2-3");
+		if (PlayerPrefs.GetInt ("isHardMode") == 1) {
+			PlayerPrefs.SetInt ("isHardMode", 0);
+			SceneManager.LoadScene ("Scenes/Transition 2-3");
+		} else {
+			PlayerPrefs.SetInt ("isHardMode", 1);
+			SceneManager.LoadScene ("Scenes/Transition 1-2");
+		}
+
 	}
 }
