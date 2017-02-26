@@ -7,12 +7,12 @@ public class Level3 : MonoBehaviour {
 	public float actionRate = 1;
 	private float lastTime;
 	public GameObject actionPrefab;
-	public bool isHardMode = true;
+	public bool isHardMode = false;
 
 	void Start () {
 		lastTime = Time.time;
-		if (isHardMode) {
-			actionRate *= 4;
+		if (PlayerPrefs.GetInt("isHardMode") == 1) {
+			isHardMode = true;
 		}
 	}
 

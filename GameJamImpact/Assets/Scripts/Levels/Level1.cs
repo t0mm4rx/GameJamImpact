@@ -32,9 +32,14 @@ public class Level1 : MonoBehaviour {
     [Tooltip("Liste des sprites possibles pour les bébés.")]
     private Sprite[] sprites;
 
+	public bool isHardMode = false;
+
     // Use this for initialization
     void Start () {
         Vector2 lastObstacle = firstObstaclePosition;
+		if (PlayerPrefs.GetInt("isHardMode") == 1) {
+			isHardMode = true;
+		}
         while(lastObstacle.x < goal.transform.position.x - minXObstacleRepop)
         {
             GenerateObstacle(lastObstacle);
