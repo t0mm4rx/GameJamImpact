@@ -5,11 +5,12 @@ using UnityEngine;
 public class ActionController : MonoBehaviour {
 
 	public string key;
+	private Animator animator;
 	private SpriteRenderer spriteRenderer;
 	private bool isPlayerOnIt, validated;
 	private int type;
 	private string name;
-	public Sprite sprite2;
+	public AnimationClip animaton2;
 	private SoundManager soundManager;
 	public bool isHardMode = false;
 
@@ -21,11 +22,10 @@ public class ActionController : MonoBehaviour {
 	void Start () {
 		type = Random.Range (0, keys.Length);
 		key = keys[type];
+		animator = gameObject.GetComponent<Animator> ();
 		spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
 		soundManager = GameObject.Find ("Player").gameObject.GetComponent<SoundManager>();
-		if (type == 1) {
-			spriteRenderer.sprite = sprite2;
-		}
+		animator.SetInteger ("type", type);
 		isPlayerOnIt = false;
 		validated = false;
 	}
@@ -36,7 +36,6 @@ public class ActionController : MonoBehaviour {
 			if (GameObject.Find ("Player").gameObject.GetComponent<PlayerController> ().levelGauge > 0) {
 				GameObject.Find ("Player").gameObject.GetComponent<PlayerController> ().levelGauge -= 0.05f;
 			}
-			spriteRenderer.color = Color.green;
 
 		}
 		if (Input.anyKeyDown && Input.GetKeyUp(key.ToLower()) && isPlayerOnIt && !validated) {
@@ -59,7 +58,7 @@ public class ActionController : MonoBehaviour {
 			GameObject.Find ("Player").gameObject.GetComponent<PlayerController> ().levelGauge += 0.2f;
 		}
 
-		if (isHardMode && spriteRenderer.enabled == true) {
+		if (PlayerPrefs.GetInt("isHardMode") == 1 && spriteRenderer.enabled == true) {
 			spriteRenderer.enabled = false;
 		}
 	}

@@ -25,6 +25,6 @@ public class Level3 : MonoBehaviour {
 
 	private void spawnAction() {
 		GameObject go = Instantiate (actionPrefab);
-		go.transform.position = new Vector3 (GameObject.Find("Player").transform.position.x + 16, -0.9f, 0);
+		go.transform.position = new Vector3 (GameObject.Find("Player").transform.position.x + 20, -3f, 0);
 	}
 }

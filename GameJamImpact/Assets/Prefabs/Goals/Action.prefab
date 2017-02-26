@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4316024985223362}
   - component: {fileID: 61279906890112902}
   - component: {fileID: 114842283926199154}
-  - component: {fileID: 50743562459869178}
-  - component: {fileID: 212727463223361882}
+  - component: {fileID: 212485588255757704}
+  - component: {fileID: 95115395231464792}
   m_Layer: 0
   m_Name: Action
   m_TagString: Untagged
@@ -37,32 +37,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1902997926335968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.514348, y: -0.007759828, z: 0}
+  m_LocalPosition: {x: 7.25, y: -2.89, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50743562459869178
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1902997926335968}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &61279906890112902
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -74,9 +54,26 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.14347744, y: -0.016770601}
+  m_Offset: {x: -0.10513425, y: -0.016770586}
   serializedVersion: 2
-  m_Size: {x: 4.5078864, y: 2.1374092}
+  m_Size: {x: 12.260971, y: 2.1374092}
+--- !u!95 &95115395231464792
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1902997926335968}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 611ea1bfd7cf5487b895dcd6a6d2411a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114842283926199154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,9 +86,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
-  sprite2: {fileID: 0}
+  animaton2: {fileID: 7400000, guid: b5c2e3c03510a47adb89c908a680e810, type: 2}
   isHardMode: 0
---- !u!212 &212727463223361882
+--- !u!212 &212485588255757704
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -122,7 +119,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 60c9271f2418b4d93ba4fda3bfc196f0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
