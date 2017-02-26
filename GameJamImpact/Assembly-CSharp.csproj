@@ -47,7 +47,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Background\InfiniteScroll.cs" />
-     <Compile Include="Assets\Scripts\FinishListenerLevel2.cs" />
+     <Compile Include="Assets\Scripts\FinishListenerLvl2.cs" />
+     <Compile Include="Assets\Scripts\FinishListenerLvl3.cs" />
      <Compile Include="Assets\Scripts\Gauge\GaugeManager.cs" />
      <Compile Include="Assets\Scripts\Gauge\MoneyGauge.cs" />
      <Compile Include="Assets\Scripts\Goal\ActionController.cs" />
@@ -64,6 +65,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Transitions\Transition1Controller.cs" />
      <Compile Include="Assets\Scripts\Util\BlinkingText.cs" />
+     <Compile Include="Assets\Scripts\Util\DispayOnEasyMode.cs" />
      <Compile Include="Assets\Scripts\Util\SoundManager.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
