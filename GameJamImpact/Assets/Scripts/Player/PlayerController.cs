@@ -172,8 +172,8 @@ public class PlayerController : MonoBehaviour {
 
     private void Awake()
     {
+        gauge = FindObjectOfType<GaugeManager>();
         moneyGauge = FindObjectOfType<MoneyGauge>();
-        DontDestroyOnLoad(moneyGauge);
 
         level1 = FindObjectOfType<Level1>();
         if (level1 != null)
@@ -197,7 +197,8 @@ public class PlayerController : MonoBehaviour {
         HandleJump();
         HandleWin();
         
-        moneyGauge.Display();
+        if(moneyGauge != null)
+            moneyGauge.Display();
         
         gauge.value = levelGauge;
         currentSpeed = speed;
@@ -252,7 +253,7 @@ public class PlayerController : MonoBehaviour {
     // Fonction gérant l'appel de l'intéraction avec le niveau
     void HandleLevelInteraction()
     {
-        if (Input.GetAxis(levelInteractionAxis) > 0 && levelInteraction != null)
+        if (!level1.isHardMode && Input.GetAxis(levelInteractionAxis) > 0 && levelInteraction != null)
         {
             foreach(ILevelInteraction ile in levelInteraction.GetComponents<ILevelInteraction>())
                 ile.CallLevelInteraction();

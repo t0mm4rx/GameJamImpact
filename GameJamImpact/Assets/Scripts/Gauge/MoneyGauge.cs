@@ -39,7 +39,7 @@ public class MoneyGauge : MonoBehaviour {
 
     public void OnDisable()
     {
-        SceneManager.sceneLoaded += OnLevelLoaded;
+        SceneManager.sceneLoaded -= OnLevelLoaded;
     }
 
     public void OnLevelLoaded(Scene scene, LoadSceneMode mode)

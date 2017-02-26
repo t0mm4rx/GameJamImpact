@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Level1 : MonoBehaviour {
 
@@ -49,8 +51,8 @@ public class Level1 : MonoBehaviour {
         }
 	}
 
-    // Génère un obstacle à la position newPosition
-    void GenerateObstacle(Vector2 newPosition)
+        // Génère un obstacle à la position newPosition
+        void GenerateObstacle(Vector2 newPosition)
     {
         obstacle.transform.position = newPosition;
         int spriteIndex = Random.Range(0, sprites.Length);

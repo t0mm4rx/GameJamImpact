@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CoinMeter
   - GameManager
+  - OnEasyMode
   layers:
   - Default
   - TransparentFX
