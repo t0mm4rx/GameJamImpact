@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Background\InfiniteScroll.cs" />
     <Compile Include="Assets\Scripts\FinishListener.cs" />
     <Compile Include="Assets\Scripts\Gauge\GaugeManager.cs" />
+    <Compile Include="Assets\Scripts\Gauge\MoneyGauge.cs" />
     <Compile Include="Assets\Scripts\Goal\ActionController.cs" />
     <Compile Include="Assets\Scripts\Goal\Goal.cs" />
     <Compile Include="Assets\Scripts\Goal\GoalEditor.cs" />
