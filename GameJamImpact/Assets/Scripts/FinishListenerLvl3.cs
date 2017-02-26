@@ -19,7 +19,7 @@ public class FinishListenerLvl3 : MonoBehaviour {
 			SceneManager.LoadScene ("Transition 2-3");
 		} else {
 			PlayerPrefs.SetInt ("isHardMode", 0);
-			SceneManager.LoadScene ("Introduction");
+			SceneManager.LoadScene ("Conclusion");
 		}
 	}
 

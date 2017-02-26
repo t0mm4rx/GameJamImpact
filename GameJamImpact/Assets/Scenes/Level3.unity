@@ -872,7 +872,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laughing: {fileID: 8300000, guid: 63d76d65bc596470ab5d274292925347, type: 3}
   apploases: {fileID: 8300000, guid: 29ad30e0496c940c3abbdf15b1b243e1, type: 3}
-  buzzer: {fileID: 8300000, guid: a0fddb37dbf654ce9b729568780d1bb6, type: 3}
+  boo: {fileID: 8300000, guid: 57ad9351f402246758942089e7fcf4b5, type: 3}
+  oue: {fileID: 8300000, guid: 31acb2acabfef43279e09eb40fda6d1b, type: 3}
 --- !u!82 &1560781614
 AudioSource:
   m_ObjectHideFlags: 0
