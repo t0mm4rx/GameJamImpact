@@ -16,6 +16,9 @@ public class Level2 : MonoBehaviour, ILevelInteraction {
 		lastFire = Time.time;
 		doesSpawnGrades = true;
 		actionText = GameObject.Find ("ActionText").gameObject.GetComponent<Text> ();
+		if (PlayerPrefs.GetInt("isHardMode") == 1) {
+			isHardMode = true;
+		}
 	}
 
 	void FixedUpdate () {
