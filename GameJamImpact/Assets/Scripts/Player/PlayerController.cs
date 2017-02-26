@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 interface ILevelInteraction
 {
-    void CallLevelInteraction();
+    void CallLevelInteraction(Transform player);
 }
 
 public class PlayerController : MonoBehaviour {
@@ -177,7 +177,11 @@ public class PlayerController : MonoBehaviour {
 
         level1 = FindObjectOfType<Level1>();
         if (level1 != null)
+        {
             DontDestroyOnLoad(level1);
+            levelInteraction = level1.gameObject;
+        }
+            
     }
 
     // Use this for initialization
@@ -256,7 +260,7 @@ public class PlayerController : MonoBehaviour {
         if (level1 != null && !level1.isHardMode && Input.GetAxis(levelInteractionAxis) > 0 && levelInteraction != null)
         {
             foreach(ILevelInteraction ile in levelInteraction.GetComponents<ILevelInteraction>())
-                ile.CallLevelInteraction();
+                ile.CallLevelInteraction(transform);
         }
     }
 

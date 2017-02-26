@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
-public class Level1 : MonoBehaviour {
+public class Level1 : MonoBehaviour, ILevelInteraction {
 
     [SerializeField]
     [Tooltip("Conteneur des obstacles.")]
@@ -38,6 +39,9 @@ public class Level1 : MonoBehaviour {
     [Tooltip("Indique si on est en mode hard.")]
 	public bool isHardMode = false;
 
+    [Tooltip("Indique si l'évènement du niveau est appelé.")]
+    private bool eventCalled = false;
+
     // Use this for initialization
     void Start () {
         Vector2 lastObstacle = firstObstaclePosition;
@@ -47,7 +51,7 @@ public class Level1 : MonoBehaviour {
         while(lastObstacle.x < goal.transform.position.x - minXObstacleRepop)
         {
             GenerateObstacle(lastObstacle);
-            lastObstacle = lastObstacle + new Vector2(minXObstacleRepop + Random.Range(0.0f, rangeXObstacleRepop), 0.0f);
+            lastObstacle = lastObstacle + new Vector2(minXObstacleRepop + UnityEngine.Random.Range(0.0f, rangeXObstacleRepop), 0.0f);
         }
 	}
 
@@ -55,9 +59,9 @@ public class Level1 : MonoBehaviour {
         void GenerateObstacle(Vector2 newPosition)
     {
         obstacle.transform.position = newPosition;
-        int spriteIndex = Random.Range(0, sprites.Length);
+        int spriteIndex = UnityEngine.Random.Range(0, sprites.Length);
         obstacle.GetComponent<SpriteRenderer>().sprite = sprites[spriteIndex];
-        if(Random.Range(0,2) == 1)
+        if(UnityEngine.Random.Range(0,2) == 1)
         {
             Vector3 newScale = obstacle.transform.localScale;
             newScale.Scale(new Vector3(-1, 1, 1));
@@ -66,5 +70,18 @@ public class Level1 : MonoBehaviour {
 
         Instantiate<GameObject>(obstacle, obstacles, true);
     }
-	
+
+    // Fonction appelée lors d'un clic droit en mode Easy
+    public void CallLevelInteraction(Transform player)
+    {
+        if (!eventCalled)
+        {
+            eventCalled = true;
+            goal = GameObject.FindGameObjectWithTag("Goal").transform;
+            Debug.Log("EVENT CALLED!");
+
+            PlayerController playerc = player.gameObject.GetComponent<PlayerController>();
+            playerc.transform.position = goal.position;
+        }
+    }
 }

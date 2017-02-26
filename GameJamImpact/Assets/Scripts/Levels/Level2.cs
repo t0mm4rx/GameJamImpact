@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class Level2 : MonoBehaviour, ILevelInteraction {
+public class Level2 : MonoBehaviour {
 
 	public float fireRate = 2, immunityTime = 5;
 	private float lastFire = 0, lastImmunity = 0;
@@ -69,9 +69,5 @@ public class Level2 : MonoBehaviour, ILevelInteraction {
 			actionText.color = Color.red;
 			lastImmunity = Time.time;
 		}
-	}
-
-	public void CallLevelInteraction() {
-
 	}
 }
